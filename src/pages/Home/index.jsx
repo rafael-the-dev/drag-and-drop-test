@@ -4,9 +4,12 @@ import { useDrag, useDrop } from 'react-dnd'
 import { ItemTypes } from '../../config'
 import { useState } from 'react';
 import { useMemo } from 'react';
+import { useCallback } from 'react';
 
 const Home = () => {
     const [ number, setNumber ] = useState(0);
+
+    const resetHandler = useCallback(() => setNumber(0), []);
 
     const [, drop] = useDrop(
         () => ({
@@ -34,16 +37,29 @@ const Home = () => {
 
     return (
         <main>
+            <h1 
+                className='text-2xl px font-bold text-center text-slate-100 mt-12 mb-6 mx-auto 
+                rounded-xl'
+                >
+                    Drag and drop a button in the box to sum
+            </h1>
             <div className='flex flex-wrap px justify-between pt-8'>
                 { buttons }
             </div>
-            <section className='mt-12 px'>
-                <h1 
+            <div className='mt-6 px'>
+                <button 
+                    className='px-12 py-3 bg-red-700 text-white'
+                    onClick={resetHandler}>
+                    Reset
+                </button>
+            </div>
+            <section className='my-12 px'>
+                <h2 
                     className='text-4xl font-bold text-center text-slate-100 py-16 mx-auto 
                     rounded-xl current-number'
                     ref={drop}>
                     { number }
-                </h1>
+                </h2>
             </section>
         </main>
     );
