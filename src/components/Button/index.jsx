@@ -6,6 +6,7 @@ import { ItemTypes } from '../../config'
 const Button = forwardRef(({ label }, ref) => {
     const [ { isDragging }, drag ] = useDrag(() => ({
         type: ItemTypes.BUTTON,
+        item: { number: label },
         collect: (monitor) => ({
           isDragging: !!monitor.isDragging()
         })
