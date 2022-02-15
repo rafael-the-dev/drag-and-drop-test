@@ -1,0 +1,7 @@
+.button {
+    background-color: #093F68;
+}
+
+.button:nth-child(11), .button:nth-child(12) {
+    visibility: hidden;
+}
