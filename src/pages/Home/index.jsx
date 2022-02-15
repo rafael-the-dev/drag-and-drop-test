@@ -12,6 +12,10 @@ const Home = () => {
                     />
                 )) }
             </div>
+            <section className='mt-12 px'>
+                <h1 className='text-4xl font-bold text-center text-slate-100 py-16 mx-auto 
+                rounded-xl current-number'>0</h1>
+            </section>
         </main>
     );
 };
